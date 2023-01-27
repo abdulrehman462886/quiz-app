@@ -21,7 +21,7 @@ export default function AddQuiz(props) {
             >
               <strong>{props.boolean ? `T-F` : `Mcq`}</strong>
             </button>
-            <div className="container form-group row">
+            <div className="container my-3">
               <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong>Enter Problem Statment?</strong>
               </label>
@@ -36,7 +36,7 @@ export default function AddQuiz(props) {
             </div>
             <div className="container my-3">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                <strong>Option 1</strong>
+                <strong  hidden={props.boolean}>Option 1</strong>
               </label>
               <input
                 value={props.inputdata.a}
@@ -46,12 +46,12 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                disabled={props.boolean}
+                hidden={props.boolean}
               />
             </div>
             <div className="container my-3">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                <strong>Option 2</strong>
+                <strong  hidden={props.boolean}>Option 2</strong>
               </label>
               <input
                 value={props.inputdata.b}
@@ -61,12 +61,12 @@ export default function AddQuiz(props) {
                 name="b"
                 className="form-control"
                 id="exampleFormControlInput1"
-                disabled={props.boolean}
+                hidden={props.boolean}
               />
             </div>
             <div className="container my-3">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                <strong>Option 3</strong>
+                <strong  hidden={props.boolean}>Option 3</strong>
               </label>
               <input
                 value={props.inputdata.c}
@@ -76,12 +76,12 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                disabled={props.boolean}
+                hidden={props.boolean}
               />
             </div>
             <div className="container my-3">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                <strong>Option 4</strong>
+                <strong  hidden={props.boolean}>Option 4</strong>
               </label>
               <input
                 value={props.inputdata.d}
@@ -91,7 +91,7 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                disabled={props.boolean}
+                hidden={props.boolean}
               />
             </div>
             <div className="container my-3">
