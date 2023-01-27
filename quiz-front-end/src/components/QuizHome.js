@@ -35,7 +35,7 @@ export default function QuizHome(props) {
           <div className="d-flex justify-content-center">
           <button type="button" className="btn btn-primary my-3" onClick={() => {props.result(props.count)}} hidden={props.scorebutton}>Show Score</button>
           </div>    
-          <h1 style={{fontFamily:'fantasy' ,textAlign: 'center'}} hidden={props.scorebutton}>{props.score}/10</h1>
+          <h1 style={{fontFamily:'fantasy' ,textAlign: 'center'}} hidden={props.scorebutton}>{props.score}/{props.inputarr.length}</h1>
     </div>
     </div>
     </div>

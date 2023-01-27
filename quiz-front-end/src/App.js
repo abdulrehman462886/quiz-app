@@ -87,7 +87,7 @@ const App = () => {
     setBol1(true);
     setQindex(qindex + 1);
     setAnsweSave(answesave + 1);
-    if (answesave === 10) {
+    if (answesave === inputarr.length) {
       setScorebutton(false);
       setBol1(true);
       setTimerboolean(true)
