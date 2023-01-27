@@ -8,8 +8,8 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const url = //"mongodb://0.0.0.0:27017/QData" 
-"mongodb+srv://mstintern6:mstintern6@cluster0.6z6cdol.mongodb.net/QData?retryWrites=true&w=majority/"
+const url = 
+"mongodb+srv://mstintern6:<password>@cluster0.6z6cdol.mongodb.net/QData?retryWrites=true&w=majority/"
 mongoose
   .connect(url, {
     useNewUrlParser: true,
