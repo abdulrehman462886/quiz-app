@@ -117,6 +117,7 @@ const App = () => {
                 mcq={mcq}
                 boolean={boolean}
                 addQbutton={addQbutton}
+                updateoption={updateoption}
               />
             }
           />

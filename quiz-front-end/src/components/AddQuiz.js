@@ -35,7 +35,7 @@ export default function AddQuiz(props) {
               />
             </div>
             <div className="container my-3">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+              <input type="radio" id="text" name="text" value={props.inputdata.a} onChange={props.updateoption} /> <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong  hidden={props.boolean}>Option 1</strong>
               </label>
               <input
@@ -50,7 +50,7 @@ export default function AddQuiz(props) {
               />
             </div>
             <div className="container my-3">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+            <input type="radio" id="text" name="text" value={props.inputdata.b} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong  hidden={props.boolean}>Option 2</strong>
               </label>
               <input
@@ -65,7 +65,7 @@ export default function AddQuiz(props) {
               />
             </div>
             <div className="container my-3">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+            <input type="radio"  id="text" name="text" value={props.inputdata.c} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong  hidden={props.boolean}>Option 3</strong>
               </label>
               <input
@@ -80,7 +80,7 @@ export default function AddQuiz(props) {
               />
             </div>
             <div className="container my-3">
-              <label htmlFor="exampleFormControlInput1" className="form-label">
+            <input type="radio"  id="text" name="text" value={props.inputdata.d} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong  hidden={props.boolean}>Option 4</strong>
               </label>
               <input
@@ -94,7 +94,7 @@ export default function AddQuiz(props) {
                 hidden={props.boolean}
               />
             </div>
-            <div className="container my-3">
+            <div className="container my-3"   hidden={!props.boolean}>
               <label htmlFor="exampleFormControlInput1" className="form-label">
                 <strong>Correct Answer</strong>
               </label>
@@ -114,8 +114,8 @@ export default function AddQuiz(props) {
                 props.inputdata.a.length === props.addQbutton ||
                 props.inputdata.b.length === props.addQbutton ||
                 props.inputdata.c.length === props.addQbutton ||
-                props.inputdata.d.length === props.addQbutton ||
-                props.inputdata.e.length === 0
+                props.inputdata.d.length === props.addQbutton
+                // props.inputdata.e.length === 0
               }
               type="button"
               onClick={props.addrecordhandle}
