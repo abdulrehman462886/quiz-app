@@ -34,8 +34,8 @@ export default function AddQuiz(props) {
                 className="form-control"
               />
             </div>
-            <div className="container my-3">
-              <input type="radio" id="text" name="text" value={props.inputdata.a} onChange={props.updateoption} /> <label htmlFor="exampleFormControlInput1" className="form-label">
+            <div className="container my-3" hidden={props.boolean}>
+              <input type="radio" id="textA" name="text" value={props.inputdata.a} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textA" className="form-label">
                 <strong  hidden={props.boolean}>Option 1</strong>
               </label>
               <input
@@ -46,11 +46,10 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                hidden={props.boolean}
               />
             </div>
-            <div className="container my-3">
-            <input type="radio" id="text" name="text" value={props.inputdata.b} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
+            <div className="container my-3" hidden={props.boolean}>
+            <input type="radio" id="textB" name="text" value={props.inputdata.b} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textB" className="form-label">
                 <strong  hidden={props.boolean}>Option 2</strong>
               </label>
               <input
@@ -61,11 +60,10 @@ export default function AddQuiz(props) {
                 name="b"
                 className="form-control"
                 id="exampleFormControlInput1"
-                hidden={props.boolean}
               />
             </div>
-            <div className="container my-3">
-            <input type="radio"  id="text" name="text" value={props.inputdata.c} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
+            <div className="container my-3" hidden={props.boolean}>
+            <input type="radio"  id="textC" name="text" value={props.inputdata.c} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textC" className="form-label">
                 <strong  hidden={props.boolean}>Option 3</strong>
               </label>
               <input
@@ -76,11 +74,10 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                hidden={props.boolean}
               />
             </div>
-            <div className="container my-3">
-            <input type="radio"  id="text" name="text" value={props.inputdata.d} onChange={props.updateoption}/> <label htmlFor="exampleFormControlInput1" className="form-label">
+            <div className="container my-3" hidden={props.boolean}>
+            <input type="radio"  id="textD" name="text" value={props.inputdata.d} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textD" className="form-label">
                 <strong  hidden={props.boolean}>Option 4</strong>
               </label>
               <input
@@ -91,13 +88,9 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
-                hidden={props.boolean}
               />
             </div>
-            <div className="container my-3"   hidden={!props.boolean}>
-              <label htmlFor="exampleFormControlInput1" className="form-label">
-                <strong>Correct Answer</strong>
-              </label>
+            {/* <div className="container my-5" hidden={!props.boolean}>
               <input
                 value={props.inputdata.e}
                 onChange={props.changehandle}
@@ -106,7 +99,18 @@ export default function AddQuiz(props) {
                 autoComplete="off"
                 className="form-control"
                 id="exampleFormControlInput1"
+                placeholder="True - False"
               />
+            </div> */}
+            <div className="container my-3" hidden={!props.boolean}>
+            <input type="radio"  id="textTrue" name="text" value={props.inputdata.e = "True"} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textTrue" className="form-label">
+                <strong >True</strong>
+              </label>
+            </div>
+            <div className="container my-3" hidden={!props.boolean}>
+            <input type="radio"  id="textFalse" name="text"  value={props.inputdata.e = "False"} onChange={props.updateoption} checked={props.radiobutton}/> <label htmlFor="textFalse" className="form-label">
+                <strong >False</strong>
+              </label>
             </div>
             <button
               disabled={

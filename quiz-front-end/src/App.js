@@ -24,12 +24,18 @@ const App = () => {
   const [delay, setDelay] = useState("30");
   const minutes = Math.floor(delay / 60);
   const seconds = Math.floor(delay % 60);
+  const [correctans, setCorrectans] = useState()
+  const [showans, setShowans] = useState(true)
+  const [radiobutton, setRadiobutton] =useState(null)
+
 
   const updateoption = (event) => {
     setOption(event.target.value);
+    setCorrectans(event.target.value)
   };
 
     useEffect(() => {
+      setRadiobutton()
       if(boolean){
       const timer = setInterval(() => {
         setDelay(delay - 1);
@@ -57,7 +63,9 @@ const App = () => {
   };
 
   const addrecordhandle = async () => {
+    setRadiobutton(false)
     alert("Question added successfully!")
+    let e = correctans
     setInputarr([...inputarr, { statement, a, b, c, d, e }]);
     setInputdata({ statement: "", a: "", b: "", c: "", d: "", e: "" });
     fetch("http://localhost:5000/submit", {
@@ -80,6 +88,7 @@ const App = () => {
   const onradioclick = () => {
     setBol1(false);
   };
+  
   const changehandle = (event) => {
     setInputdata({ ...inputdata, [event.target.name]: event.target.value });
   };
@@ -100,7 +109,8 @@ const App = () => {
   };
   const result = (count) => {
     setScore(count);
-  };
+    setShowans(false)
+  }
   return (
     <>
       <Header />
@@ -118,6 +128,7 @@ const App = () => {
                 boolean={boolean}
                 addQbutton={addQbutton}
                 updateoption={updateoption}
+                radiobutton={radiobutton}
               />
             }
           />
@@ -128,6 +139,7 @@ const App = () => {
                 key={qindex}
                 inputarr={inputarr}  startQuiz={startQuiz} updateoption={updateoption}
                 savehandle={savehandle}
+                showans={showans}
                 count={count}
                 result={result}
                 score={score}

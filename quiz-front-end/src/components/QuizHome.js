@@ -14,8 +14,8 @@ export default function QuizHome(props) {
               <div key={index + 1}><br></br>
               <h3><strong>{index + 1}: </strong>
                 <strong>{value.statement}</strong></h3>
-                <h5><input type="radio" id="text"  name="text" value="True" onChange={props.updateoption} onClick={props.onradioclick}/> True<br></br>
-                <input type="radio" id="text" name="text" value="False" onChange={props.updateoption} onClick={props.onradioclick}/> False<br></br></h5>
+                <h5><input type="radio" id="text"  name="textTrue" value="True" onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textTrue">True</label><br></br>
+                <input type="radio" id="text" name="textFalse" value="False" onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textFalse">False</label><br></br></h5>
                 <button type="button"  className="btn btn-primary my-5" onClick={() => {props.savehandle(value.e,index)}} disabled={props.bol1}>Save</button>
               </div>
             );}
@@ -24,10 +24,10 @@ export default function QuizHome(props) {
               <div key={index + 1}><br></br>
               <h3><strong>{index + 1}: </strong>
                 <strong>{value.statement}</strong></h3>
-                <h5><strong>A</strong> <input type="radio" id="text"  name="text" value={value.a} onChange={props.updateoption} onClick={props.onradioclick}/> {value.a}<br></br>
-                <strong>B</strong> <input type="radio" id="text" name="text" value={value.b} onChange={props.updateoption} onClick={props.onradioclick}/> {value.b}<br></br>
-                <strong>C</strong> <input type="radio" id="text" name="text" value={value.c} onChange={props.updateoption} onClick={props.onradioclick}/> {value.c}<br></br>
-                <strong>D</strong> <input type="radio" id="text" name="text" value={value.d} onChange={props.updateoption} onClick={props.onradioclick}/> {value.d}<br></br></h5>
+                <h5><strong>A</strong> <input type="radio" id="textA"  name="text" value={value.a} onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textA">{value.a}</label><br></br>
+                <strong>B</strong> <input type="radio" id="textB" name="text" value={value.b} onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textB">{value.b}</label><br></br>
+                <strong>C</strong> <input type="radio" id="textC" name="text" value={value.c} onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textC">{value.c}</label><br></br>
+                <strong>D</strong> <input type="radio" id="textD" name="text" value={value.d} onChange={props.updateoption} onClick={props.onradioclick}/> <label htmlFor="textD">{value.d}</label><br></br></h5>
                 <button  type="button" className="btn btn-primary my-5" onClick={() => {props.savehandle(value.e,index)}} disabled={props.bol1}>Save</button>
               </div>
             )}
@@ -36,6 +36,21 @@ export default function QuizHome(props) {
           <button type="button" className="btn btn-primary my-3" onClick={() => {props.result(props.count)}} hidden={props.scorebutton}>Show Score</button>
           </div>    
           <h1 style={{fontFamily:'fantasy' ,textAlign: 'center'}} hidden={props.scorebutton}>{props.score}/{props.inputarr.length}</h1>
+    </div>
+    <div hidden={props.showans}>
+    {props.inputarr.map((value, index) => {
+            return (
+              <div key={index + 1}><br></br>
+              <h3><strong>{index + 1}: </strong>
+                <strong>{value.statement}</strong></h3>
+                <h5><strong>A</strong> <label htmlFor="textA">{value.a}</label><br></br>
+                <strong>B</strong> <label htmlFor="textB">{value.b}</label><br></br>
+                <strong>C</strong> <label htmlFor="textC">{value.c}</label><br></br>
+                <strong>D</strong> <label htmlFor="textD">{value.d}</label><br></br>
+                <strong> <span>&#8594;</span> Correct: </strong> <label style={{color:"green" , fontFamily:"fantasy"}}>{value.e}</label> </h5>
+              </div>
+            )
+    })} 
     </div>
     </div>
     </div>
