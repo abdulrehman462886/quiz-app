@@ -19,14 +19,15 @@ const App = () => {
   const [answesave, setAnsweSave] = useState(1);
   const [addQbutton, setaddQbutton] = useState(0);
   const [qindex, setQindex] = useState(0);
-  const [inputdata, setInputdata] = useState({statement: "", a: "", b: "", c: "", d: "", e: ""});
+  const [inputdata, setInputdata] = useState({statement: "", a: "", b: "", c: "", d: "", e: "",option:""});
   let { statement, a, b, c, d, e } = inputdata;
-  const [delay, setDelay] = useState("30");
+  const [delay, setDelay] = useState("180");
   const minutes = Math.floor(delay / 60);
   const seconds = Math.floor(delay % 60);
   const [correctans, setCorrectans] = useState()
   const [showans, setShowans] = useState(true)
   const [radiobutton, setRadiobutton] =useState(null)
+  const [array,setArray] = useState([]);
 
 
   const updateoption = (event) => {
@@ -66,7 +67,7 @@ const App = () => {
     setRadiobutton(false)
     alert("Question added successfully!")
     let e = correctans
-    setInputarr([...inputarr, { statement, a, b, c, d, e }]);
+    setInputarr([...inputarr, { statement, a, b, c, d, e, option }]);
     setInputdata({ statement: "", a: "", b: "", c: "", d: "", e: "" });
     fetch("http://localhost:5000/submit", {
       method: "POST",
@@ -101,11 +102,14 @@ const App = () => {
       setBol1(true);
       setTimerboolean(true)
     }
+    setArray(oldArray => [...oldArray,option] );
+    console.log(array)
     if (
-      option.toLocaleLowerCase().trim() === value.toLocaleLowerCase().trim()
+      option === value
     ) {
       setCount(count + 1);
     }
+
   };
   const result = (count) => {
     setScore(count);
@@ -149,6 +153,7 @@ const App = () => {
                 bol1={bol1}
                 onradioclick={onradioclick}
                 boolean={boolean}
+                array={array}
               />
             ]}
           />
