@@ -38,52 +38,59 @@ export default function QuizHome(props) {
           <h1 style={{fontFamily:'fantasy' ,textAlign: 'center'}} hidden={props.scorebutton}>{props.score}/{props.inputarr.length}</h1>
     </div>
     <div hidden={props.showans}>
-    {props.inputarr.map((value, index) => {
-            if(value.a.length === 0){
-              return (
-              <div key={index + 1}><br></br>
-              <h3><strong>{index + 1}: </strong>
-                <strong>{value.statement}</strong></h3>
-                <h5> <label htmlFor="textTrue">True</label><br></br>
-                <label htmlFor="textFalse">False</label><br></br>
-                <strong> <span>&#8594;</span> Correct: </strong> <label style={{color:"green" , fontFamily:"fantasy"}}>{value.e}</label><br></br> 
-                </h5>
+    <div class="container">
+    <table class="table" style={{fontSize:"18px"}}>
+       <thead>
+         <tr>
+          <th scope="col">Statement</th>
+          <th scope="col">Selected</th>
+          <th scope="col">Correct</th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{props.inputarr.map((value, index) => {
+             return(
+              <>
+               <div key={index + 1}><br></br>
+                <strong>{index + 1}: </strong>
+                 {value.statement}
+               </div>
+               <hr></hr>
+            </>
+            )
+           })} 
+          </td>
+          <td>
+          {props.inputarr.map((value, index) => {
+           return(
+            <>
+            <div key={index + 1}><br></br>
+                {value.e}
               </div>
-            );}
-            else if(value.a.length !== 0){
-            return (
-              <div key={index + 1}><br></br>
-              <h3><strong>{index + 1}: </strong>
-                <strong>{value.statement}</strong></h3>
-                <h5><strong>A</strong>  <label htmlFor="textA">{value.a}</label><br></br>
-                <strong>B</strong> <label htmlFor="textB">{value.b}</label><br></br>
-                <strong>C</strong> <label htmlFor="textC">{value.c}</label><br></br>
-                <strong>D</strong> <label htmlFor="textD">{value.d}</label><br></br>
-                <strong> <span>&#8594;</span> Correct: </strong> <label style={{color:"green" , fontFamily:"fantasy"}}>{value.e}</label><br></br>
-                </h5>
+              <hr></hr>
+            </>
+           )
+           })} 
+          </td>
+          <td> {props.array.map((value,index) =>{
+           return(
+           <>
+           <div key={index + 1}><br></br>
+                <strong></strong>
+                {value.option}
               </div>
-            )}
-        })} 
+              <hr></hr>
+           </>
+            )
+            })}</td>
+        </tr>
+     </tbody>
+    </table>   
+        </div>
+      </div>
     </div>
     </div>
-    </div>
-    <div hidden={props.showans}>
-    { props.array.map((value,index) =>{
-              return(
-                <>
-                <div>
-                  <table class="table w-25" align="left">
-                  <tbody>
-                  <tr>
-                  <td><strong> <span>&#8594;</span>Q: {index+1} Selecetd : </strong> <label style={{color:"green" , fontFamily:"fantasy"}}>{value}</label></td>
-                  </tr>
-                 </tbody>
-                 </table>
-                </div>
-                </>
-              )
-            })}
-            </div> 
     </>
   )
 }

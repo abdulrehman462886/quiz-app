@@ -19,7 +19,7 @@ const App = () => {
   const [answesave, setAnsweSave] = useState(1);
   const [addQbutton, setaddQbutton] = useState(0);
   const [qindex, setQindex] = useState(0);
-  const [inputdata, setInputdata] = useState({statement: "", a: "", b: "", c: "", d: "", e: "",option:""});
+  const [inputdata, setInputdata] = useState({statement: "", a: "", b: "", c: "", d: "", e: ""});
   let { statement, a, b, c, d, e } = inputdata;
   const [delay, setDelay] = useState("180");
   const minutes = Math.floor(delay / 60);
@@ -67,7 +67,7 @@ const App = () => {
     setRadiobutton(false)
     alert("Question added successfully!")
     let e = correctans
-    setInputarr([...inputarr, { statement, a, b, c, d, e, option }]);
+    setInputarr([...inputarr, { statement, a, b, c, d, e }]);
     setInputdata({ statement: "", a: "", b: "", c: "", d: "", e: "" });
     fetch("http://localhost:5000/submit", {
       method: "POST",
@@ -102,8 +102,8 @@ const App = () => {
       setBol1(true);
       setTimerboolean(true)
     }
-    setArray(oldArray => [...oldArray,option] );
-    console.log(array)
+    setArray([...array,{option}])
+    console.log(inputarr)
     if (
       option === value
     ) {
