@@ -13,7 +13,7 @@ const App = () => {
   const [bol1, setBol1] = useState(true);
   const [timerboolean, setTimerboolean] = useState(true)
   const [inputarr, setInputarr] = useState([]);
-  const [option, setOption] = useState("");
+  const [option, setOption] = useState("null");
   const [count, setCount] = useState(0);
   const [score, setScore] = useState();
   const [answesave, setAnsweSave] = useState(1);
@@ -28,6 +28,7 @@ const App = () => {
   const [showans, setShowans] = useState(true)
   const [radiobutton, setRadiobutton] =useState(null)
   const [array,setArray] = useState([]);
+  const [data,setData] = useState(inputarr)
 
 
   const updateoption = (event) => {
@@ -103,7 +104,7 @@ const App = () => {
       setTimerboolean(true)
     }
     setArray([...array,{option}])
-    console.log(inputarr)
+
     if (
       option === value
     ) {
@@ -114,6 +115,11 @@ const App = () => {
   const result = (count) => {
     setScore(count);
     setShowans(false)
+    let data1 = []
+    setData(data1)
+    for( var i = 0 ; i< inputarr.length ; i++){
+      data1.push({"value": inputarr[i], "selected": array[i]})
+    }
   }
   return (
     <>
@@ -154,6 +160,7 @@ const App = () => {
                 onradioclick={onradioclick}
                 boolean={boolean}
                 array={array}
+                data={data}
               />
             ]}
           />
