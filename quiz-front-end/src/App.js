@@ -13,7 +13,7 @@ const App = () => {
   const [bol1, setBol1] = useState(true);
   const [timerboolean, setTimerboolean] = useState(true)
   const [inputarr, setInputarr] = useState([]);
-  const [option, setOption] = useState("null");
+  const [option, setOption] = useState();
   const [count, setCount] = useState(0);
   const [score, setScore] = useState();
   const [answesave, setAnsweSave] = useState(1);
