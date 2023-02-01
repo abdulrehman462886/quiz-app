@@ -38,7 +38,7 @@ export default function QuizHome(props) {
     </div>
     <div hidden={props.showans}>
     <div className="container">
-    {props.data.map((obj, index) =>{
+    {props.data.map((obj, index) => { 
            if(obj.value.a.length === 0){
               return (
               <div key={index + 1}><br></br>
